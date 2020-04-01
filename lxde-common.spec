@@ -16,7 +16,9 @@ Patch102:	lxde-common-0.5.5-add-mcc-to-panel.patch
 #Patch103:	lxde-common-0.5.5-lxpanel-customization.patch
 Patch106:	lxde-common-0.5.5-autostart.patch
 #Patch109:	lxde-common-0.5.5-config.patch
+
 BuildArch:	noarch
+BuildRequires:  intltool
 BuildRequires:	docbook-style-xsl
 BuildRequires:	xsltproc
 #Requires:	smproxy
