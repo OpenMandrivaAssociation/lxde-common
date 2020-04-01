@@ -9,7 +9,7 @@ Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Url:		http://lxde.sourceforge.net/
-Source0:	http://sourceforge.net/project/lxde/%{name}-%{version}.tar.gz
+Source0:	http://sourceforge.net/project/lxde/%{name}-%{version}.tar.xz
 # Mandriva customization patch
 Patch101:	lxde-common-0.5.5-pcmanfm.conf.patch
 Patch102:	lxde-common-0.5.5-add-mcc-to-panel.patch
