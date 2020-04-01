@@ -4,12 +4,12 @@
 Summary:	A set of default configuration for LXDE
 Name:		lxde-common
 Epoch:		1
-Version:	0.5.5
-Release:	0%{git}.14
+Version:	0.99.2
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Url:		http://lxde.sourceforge.net/
-Source0:	http://dfn.dl.sourceforge.net/sourceforge/lxde/%{name}-%{version}.tar.gz
+Source0:	http://sourceforge.net/project/lxde/%{name}-%{version}.tar.gz
 # Mandriva customization patch
 Patch101:	lxde-common-0.5.5-pcmanfm.conf.patch
 Patch102:	lxde-common-0.5.5-add-mcc-to-panel.patch
@@ -46,11 +46,11 @@ This package provides a set of default configuration for LXDE.
 %patch109 -p0 -b .config
 
 %build
-%configure2_5x --enable-man
-%make
+%configure --enable-man
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # we'll ship these files via mandriva-lxde-config
 rm -f %{buildroot}%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf %{buildroot}%{_datadir}/lxde/openbox/rc.xml
