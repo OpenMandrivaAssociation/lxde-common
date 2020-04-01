@@ -48,6 +48,7 @@ This package provides a set of default configuration for LXDE.
 #patch109 -p0 -b .config
 
 %build
+./autogen.sh
 %configure --enable-man
 %make_build
 
