@@ -15,7 +15,7 @@ Source0:	http://sourceforge.net/project/lxde/%{name}-%{version}.tar.xz
 Patch102:	lxde-common-0.5.5-add-mcc-to-panel.patch
 #Patch103:	lxde-common-0.5.5-lxpanel-customization.patch
 Patch106:	lxde-common-0.5.5-autostart.patch
-Patch109:	lxde-common-0.5.5-config.patch
+#Patch109:	lxde-common-0.5.5-config.patch
 BuildArch:	noarch
 BuildRequires:	docbook-style-xsl
 BuildRequires:	xsltproc
@@ -43,7 +43,7 @@ This package provides a set of default configuration for LXDE.
 %patch102 -p0 -b .mdv-mcc
 #patch103 -p1 -b .mdv-panel
 %patch106 -p0 -b .autostart
-%patch109 -p0 -b .config
+#patch109 -p0 -b .config
 
 %build
 %configure --enable-man
