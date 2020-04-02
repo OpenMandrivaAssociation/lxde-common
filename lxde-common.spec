@@ -5,7 +5,7 @@ Summary:	A set of default configuration for LXDE
 Name:		lxde-common
 Epoch:		1
 Version:	0.99.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Url:		http://lxde.sourceforge.net/
@@ -60,10 +60,10 @@ This package provides a set of default configuration for LXDE.
 %make_install
 
 # we'll ship these files via mandriva-lxde-config
-rm -f %{buildroot}%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf %{buildroot}%{_datadir}/lxde/openbox/rc.xml
+#rm -f %{buildroot}%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf %{buildroot}%{_datadir}/lxde/openbox/rc.xml
 
 # we do not need this file
-rm -f %{buildroot}%{_datadir}/xsessions/LXDE.desktop
+#rm -f %{buildroot}%{_datadir}/xsessions/LXDE.desktop
 
 # instead, we use wmsession.d
 install -d %{buildroot}%{_sysconfdir}/X11/wmsession.d/
