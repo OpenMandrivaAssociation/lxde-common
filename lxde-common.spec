@@ -31,9 +31,10 @@ Requires:	lxsession >= 0.4.1
 Requires:	pcmanfm >= 0.9.10
 Requires:	lxterminal
 Requires:	lxde-icon-theme
-Requires:	mandriva-lxde-config >= 0.5
-Requires(post):	mandriva-theme
-Suggests:	xscreensaver
+# Disable it for now (until prepare new one config)
+#Requires:	mandriva-lxde-config >= 0.5
+#Requires(post):	mandriva-theme
+Recommends:	xscreensaver
 Conflicts:	mandriva-lxde-config-Free < 0.5
 Conflicts:	mandriva-lxde-config-Flash < 0.5
 Conflicts:	mandriva-lxde-config-One < 0.5
