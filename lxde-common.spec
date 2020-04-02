@@ -21,6 +21,9 @@ BuildArch:	noarch
 BuildRequires:  intltool
 BuildRequires:	docbook-style-xsl
 BuildRequires:	xsltproc
+BuildRequires:  gettext-devel
+BuildRequires:  gettext
+BuildRequires:  glib-gettextize
 #Requires:	smproxy
 Requires:	openbox
 Requires:	lxpanel >= 0.5.9
@@ -48,7 +51,7 @@ This package provides a set of default configuration for LXDE.
 #patch109 -p0 -b .config
 
 %build
-./autogen.sh
+#./autogen.sh
 %configure --enable-man
 %make_build
 
