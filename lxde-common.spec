@@ -86,6 +86,8 @@ install -m644 -D lxde-logout.desktop.in %{buildroot}%{_datadir}/applications/lxd
 %{_sysconfdir}/xdg/lxpanel/LXDE/panels/panel
 %{_sysconfdir}/xdg/openbox/LXDE/menu.xml
 %{_sysconfdir}/xdg/openbox/LXDE/rc.xml
+%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
+%{_datadir}/xsessions/LXDE.desktop
 %{_bindir}/*
 %{_datadir}/applications/lxde-logout.desktop
 %{_datadir}/applications/lxde-screenlock.desktop
