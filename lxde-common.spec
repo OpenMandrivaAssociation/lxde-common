@@ -84,6 +84,6 @@ install -m644 -D lxde-logout.desktop.in %{buildroot}%{_datadir}/applications/lxd
 %{_bindir}/*
 %{_datadir}/applications/lxde-logout.desktop
 %{_datadir}/lxde
-%{_datadir}/lxpanel
+#{_datadir}/lxpanel
 %{_mandir}/man1/*
 
