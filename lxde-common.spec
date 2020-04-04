@@ -81,7 +81,7 @@ This package provides a set of default configuration for LXDE.
 %files
 %config %{_sysconfdir}/xdg/lxsession/LXDE/autostart
 %config %{_sysconfdir}/xdg/pcmanfm/LXDE/pcmanfm.conf
-%{_sysconfdir}/X11/wmsession.d/04LXDE
+#{_sysconfdir}/X11/wmsession.d/04LXDE
 %{_sysconfdir}/xdg/lxpanel/LXDE/config
 %{_sysconfdir}/xdg/lxpanel/LXDE/panels/panel
 %{_sysconfdir}/xdg/openbox/LXDE/menu.xml
