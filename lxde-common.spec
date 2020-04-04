@@ -5,16 +5,16 @@ Summary:	A set of default configuration for LXDE
 Name:		lxde-common
 Epoch:		1
 Version:	0.99.2
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Url:		http://lxde.sourceforge.net/
 Source0:	http://sourceforge.net/project/lxde/%{name}-%{version}.tar.xz
 # Mandriva customization patch
 #Patch101:	lxde-common-0.5.5-pcmanfm.conf.patch
-Patch102:	lxde-common-0.5.5-add-mcc-to-panel.patch
+#Patch102:	lxde-common-0.5.5-add-mcc-to-panel.patch
 #Patch103:	lxde-common-0.5.5-lxpanel-customization.patch
-Patch106:	lxde-common-0.5.5-autostart.patch
+#Patch106:	lxde-common-0.5.5-autostart.patch
 #Patch109:	lxde-common-0.5.5-config.patch
 
 BuildArch:	noarch
@@ -46,9 +46,9 @@ This package provides a set of default configuration for LXDE.
 %prep
 %setup -q
 #patch101 -p0 -b .pcmanfm_conf
-%patch102 -p0 -b .mdv-mcc
+#patch102 -p0 -b .mdv-mcc
 #patch103 -p1 -b .mdv-panel
-%patch106 -p0 -b .autostart
+#patch106 -p0 -b .autostart
 #patch109 -p0 -b .config
 
 %build
@@ -66,17 +66,17 @@ This package provides a set of default configuration for LXDE.
 #rm -f %{buildroot}%{_datadir}/xsessions/LXDE.desktop
 
 # instead, we use wmsession.d
-install -d %{buildroot}%{_sysconfdir}/X11/wmsession.d/
-cat > %{buildroot}%{_sysconfdir}/X11/wmsession.d/04LXDE << EOF
-NAME=LXDE
-DESC=Lightweight X11 Desktops Environment
-EXEC=/usr/bin/startlxde
-SCRIPT:
-exec /usr/bin/startlxde
-EOF
+#install -d %{buildroot}%{_sysconfdir}/X11/wmsession.d/
+#cat > %{buildroot}%{_sysconfdir}/X11/wmsession.d/04LXDE << EOF
+#NAME=LXDE
+#DESC=Lightweight X11 Desktops Environment
+#EXEC=/usr/bin/startlxde
+#SCRIPT:
+#exec /usr/bin/startlxde
+#EOF
 
 # install this one manually, this provides the logout button on lxpanel:
-install -m644 -D lxde-logout.desktop.in %{buildroot}%{_datadir}/applications/lxde-logout.desktop
+#install -m644 -D lxde-logout.desktop.in %{buildroot}%{_datadir}/applications/lxde-logout.desktop
 
 %files
 %config %{_sysconfdir}/xdg/lxsession/LXDE/autostart
