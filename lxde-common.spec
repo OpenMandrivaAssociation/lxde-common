@@ -1,23 +1,29 @@
-%define git git20110808
-# define Epoch only to revert from 0.5.5.1 to 0.5.5 git
+# git snapshot
+%global snapshot 1
+%if 0%{?snapshot}
+	%global commit		9db83b50695eca970280f5692767fdcb7130d976
+	%global commitdate	20230824
+	%global shortcommit	%(c=%{commit}; echo ${c:0:7})
+%endif
 
 Summary:	A set of default configuration for LXDE
 Name:		lxde-common
-Epoch:		1
 Version:	0.99.2
-Release:	2
-License:	GPLv2+
+Release:	3
 Group:		Graphical desktop/Other
+License:	GPLv2+
 Url:		http://lxde.sourceforge.net/
-Source0:	http://sourceforge.net/project/lxde/%{name}-%{version}.tar.xz
-# Mandriva customization patch
-#Patch101:	lxde-common-0.5.5-pcmanfm.conf.patch
-Patch102:	lxde-common-0.5.5-add-mcc-to-panel.patch
-#Patch103:	lxde-common-0.5.5-lxpanel-customization.patch
-Patch106:	lxde-common-0.5.5-autostart.patch
-#Patch109:	lxde-common-0.5.5-config.patch
+#Source0:	http://sourceforge.net/project/lxde/%{name}-%{version}.tar.xz
+Source0:	https://github.com/lxde/%{name}/archive/%{?snapshot:%{commit}}%{!?snapshot:%{version}}/%{name}-%{?snapshot:%{commit}}%{!?snapshot:%{version}}.tar.gz
+Source10:	libfm.conf.custom
+# OpenMandriva customizations
+Patch100:	lxde-common-0.99.2-openmandriva-autostart.patch
+Patch101:	lxde-common-0.99.2-openmandriva-lxsession.patch
+Patch102:	lxde-common-0.99.2-openmandriva-pcmanfm.patch
+Patch103:	lxde-common-0.99.2-openmandriva-lxpanel.patch
+Patch104:	lxde-common-0.99.2-openmandriva-theme.patch
+Patch105:	lxde-common-0.99.2-openmandriva-logout.patch
 
-BuildArch:	noarch
 BuildRequires:  intltool
 BuildRequires:	docbook-style-xsl
 BuildRequires:	xsltproc
@@ -26,34 +32,49 @@ BuildRequires:  gettext
 BuildRequires:  glib-gettextize
 #Requires:	smproxy
 Requires:	openbox
-Requires:	lxpanel >= 0.5.9
-Requires:	lxsession >= 0.4.1
-Requires:	pcmanfm >= 0.9.10
+Requires:	lxpanel
+Requires:	lxsession
+Requires:	pcmanfm
 Requires:	lxterminal
 Requires:	lxde-icon-theme
-# Disable it for now (until prepare new one config)
-#Requires:	mandriva-lxde-config >= 0.5
-#Requires(post):	mandriva-theme
+
 Recommends:	xscreensaver
-Conflicts:	mandriva-lxde-config-Free < 0.5
-Conflicts:	mandriva-lxde-config-Flash < 0.5
-Conflicts:	mandriva-lxde-config-One < 0.5
-Conflicts:	mandriva-lxde-config-Powerpack < 0.5
+
+BuildArch:	noarch
 
 %description
 This package provides a set of default configuration for LXDE.
 
+%files
+%config(noreplace) %{_sysconfdir}/xdg/lxsession/LXDE/autostart
+%config(noreplace) %{_sysconfdir}/xdg/pcmanfm/LXDE/pcmanfm.conf
+%{_sysconfdir}/X11/wmsession.d/04LXDE
+%{_sysconfdir}/xdg/lxpanel/LXDE/config
+%config(noreplace) %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
+%config(noreplace) %{_sysconfdir}/xdg/lxpanel/LXDE/panels/panel
+%{_sysconfdir}/xdg/openbox/LXDE/menu.xml
+%{_sysconfdir}/xdg/openbox/LXDE/rc.xml
+%{_datadir}/xsessions/LXDE.desktop
+%{_bindir}/*
+%{_datadir}/applications/lxde-logout.desktop
+%{_datadir}/applications/lxde-screenlock.desktop
+%{_datadir}/lxde
+#{_datadir}/lxpanel
+%{_mandir}/man1/*
+
+%dir	%{_sysconfdir}/xdg/lxsession/libfm
+%config(noreplace) %{_sysconfdir}/xdg/lxsession/libfm/libfm.conf
+
+#---------------------------------------------------------------------------
+
 %prep
-%setup -q
-#patch101 -p0 -b .pcmanfm_conf
-%patch102 -p0 -b .mdv-mcc
-#patch103 -p1 -b .mdv-panel
-%patch106 -p0 -b .autostart
-#patch109 -p0 -b .config
+%autosetup -p1 -n %{name}-%{?snapshot:%{commit}}%{!?snapshot:%{version}}
 
 %build
-#./autogen.sh
-%configure --enable-man
+./autogen.sh
+%configure \
+	--enable-man \
+	%{nil}
 %make_build
 
 %install
@@ -75,23 +96,10 @@ SCRIPT:
 exec /usr/bin/startlxde
 EOF
 
-# install this one manually, this provides the logout button on lxpanel:
+# install this one manually, this provides the logout button on lxpanel
 install -m644 -D lxde-logout.desktop.in %{buildroot}%{_datadir}/applications/lxde-logout.desktop
 
-%files
-%config %{_sysconfdir}/xdg/lxsession/LXDE/autostart
-%config %{_sysconfdir}/xdg/pcmanfm/LXDE/pcmanfm.conf
-%{_sysconfdir}/X11/wmsession.d/04LXDE
-%{_sysconfdir}/xdg/lxpanel/LXDE/config
-%{_sysconfdir}/xdg/lxpanel/LXDE/panels/panel
-%{_sysconfdir}/xdg/openbox/LXDE/menu.xml
-%{_sysconfdir}/xdg/openbox/LXDE/rc.xml
-%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
-%{_datadir}/xsessions/LXDE.desktop
-%{_bindir}/*
-%{_datadir}/applications/lxde-logout.desktop
-%{_datadir}/applications/lxde-screenlock.desktop
-%{_datadir}/lxde
-#{_datadir}/lxpanel
-%{_mandir}/man1/*
+#install custom libfm.conf to set default terminal
+mkdir -p %{buildroot}%{_sysconfdir}/xdg/lxsession/libfm
+install -cpm 0644 %{SOURCE10} %{buildroot}%{_sysconfdir}/xdg/lxsession/libfm/libfm.conf
 

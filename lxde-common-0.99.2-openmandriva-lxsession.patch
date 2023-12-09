@@ -1,0 +1,15 @@
+--- a/desktop.conf
++++ b/desktop.conf
+@@ -2,8 +2,10 @@
+ window_manager=openbox-lxde
+ 
+ [GTK]
+-sNet/ThemeName=Clearlooks
+-sNet/IconThemeName=nuoveXT2
++sNet/ThemeName=Breeze
++sNet/IconThemeName=breeze
++sGtk/CursorThemeName=Breeze_Snow
++sGtk/ColorScheme=
+ sGtk/FontName=Sans 10
+ iGtk/ToolbarStyle=3
+ iGtk/ButtonImages=1

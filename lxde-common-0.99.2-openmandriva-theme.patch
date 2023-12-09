@@ -1,0 +1,11 @@
+--- a/openbox/rc.xml.in
++++ b/openbox/rc.xml.in
+@@ -42,7 +42,7 @@
+ </placement>
+ 
+ <theme>
+-  <name>Onyx</name>
++  <name>Mistral</name>
+   <titleLayout>NLIMC</titleLayout>
+   <!--
+       available characters are NDSLIMC, each can occur at most once.

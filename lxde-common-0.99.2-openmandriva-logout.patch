@@ -1,0 +1,7 @@
+--- a/lxde-logout.in
++++ b/lxde-logout.in
+@@ -1,2 +1,3 @@
+ #!/bin/sh
+-lxsession-logout --banner "@prefix@/share/lxde/images/logout-banner.png" --side=top
++lxsession-logout --banner "@prefix@/share/mdk/indexhtml/images/OM-400gr.png" --side=top
++
