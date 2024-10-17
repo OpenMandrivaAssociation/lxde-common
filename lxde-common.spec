@@ -12,7 +12,7 @@ Version:	0.99.2
 Release:	3
 Group:		Graphical desktop/Other
 License:	GPLv2+
-Url:		http://lxde.sourceforge.net/
+Url:		https://lxde.sourceforge.net/
 #Source0:	http://sourceforge.net/project/lxde/%{name}-%{version}.tar.xz
 Source0:	https://github.com/lxde/%{name}/archive/%{?snapshot:%{commit}}%{!?snapshot:%{version}}/%{name}-%{?snapshot:%{commit}}%{!?snapshot:%{version}}.tar.gz
 Source10:	libfm.conf.custom
