@@ -1,15 +1,15 @@
 # git snapshot
 %global snapshot 1
 %if 0%{?snapshot}
-	%global commit		9db83b50695eca970280f5692767fdcb7130d976
-	%global commitdate	20230824
+	%global commit		8f960208e67ce64b4df0185b2c6c4da20dc0d24d
+	%global commitdate	20240816
 	%global shortcommit	%(c=%{commit}; echo ${c:0:7})
 %endif
 
 Summary:	A set of default configuration for LXDE
 Name:		lxde-common
 Version:	0.99.2
-Release:	3
+Release:	4
 Group:		Graphical desktop/Other
 License:	GPLv2+
 Url:		https://lxde.sourceforge.net/
