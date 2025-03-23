@@ -1,6 +1,6 @@
 --- a/lxpanel/panel.in
 +++ b/lxpanel/panel.in
-@@ -7,18 +7,24 @@
+@@ -7,16 +7,24 @@
      margin=0
      widthtype=percent
      width=100
@@ -18,8 +18,8 @@
 +    autohide=0
      setdocktype=1
      setpartialstrut=1
-     autohide=0
-     heightwhenhidden=0
++    autohide=0
++    heightwhenhidden=0
      usefontcolor=1
 +    UseFontSize=0
 +    FontSize=10
@@ -27,7 +27,7 @@
 -    background=1
 -    backgroundfile=@prefix@/share/lxpanel/images/background.png
 +    background=0
-+    backgroundfile=/usr/share/lxpanel/images/background.png
++    backgroundfile=@prefix@/share/lxpanel/images/background.png
  }
  
  Plugin {
@@ -96,7 +96,7 @@
  }
  
 @@ -105,13 +127,22 @@
-         ShowAllDesks=0
+         ShowSquareBrackets=1
          UseMouseWheel=1
          UseUrgencyHint=1
 -        FlatButton=0

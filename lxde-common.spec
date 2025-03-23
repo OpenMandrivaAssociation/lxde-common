@@ -1,5 +1,5 @@
 # git snapshot
-%global snapshot 1
+#global snapshot 1
 %if 0%{?snapshot}
 	%global commit		8f960208e67ce64b4df0185b2c6c4da20dc0d24d
 	%global commitdate	20240816
@@ -8,8 +8,8 @@
 
 Summary:	A set of default configuration for LXDE
 Name:		lxde-common
-Version:	0.99.2
-Release:	4
+Version:	0.99.3
+Release:	1
 Group:		Graphical desktop/Other
 License:	GPLv2+
 Url:		https://lxde.sourceforge.net/
@@ -19,8 +19,8 @@ Source10:	libfm.conf.custom
 # OpenMandriva customizations
 Patch100:	lxde-common-0.99.2-openmandriva-autostart.patch
 Patch101:	lxde-common-0.99.2-openmandriva-lxsession.patch
-Patch102:	lxde-common-0.99.2-openmandriva-pcmanfm.patch
-Patch103:	lxde-common-0.99.2-openmandriva-lxpanel.patch
+Patch102:	lxde-common-0.99.3-openmandriva-pcmanfm.patch
+Patch103:	lxde-common-0.99.3-openmandriva-lxpanel.patch
 Patch104:	lxde-common-0.99.2-openmandriva-theme.patch
 Patch105:	lxde-common-0.99.2-openmandriva-logout.patch
 
