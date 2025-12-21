@@ -24,6 +24,11 @@ Patch103:	lxde-common-0.99.3-openmandriva-lxpanel.patch
 Patch104:	lxde-common-0.99.2-openmandriva-theme.patch
 Patch105:	lxde-common-0.99.2-openmandriva-logout.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  intltool
 BuildRequires:	docbook-style-xsl
 BuildRequires:	xsltproc
